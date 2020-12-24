@@ -15,11 +15,13 @@ public class Calendar {
 
         System.out.print("输入每周从周几开始： ");
         int weekStartOn = in.nextInt();
-        // int nowYear = 2020;
-        // int nowMonth = 12;
-        // int weekStartOn = 5;
+        /*
+         int nowYear = 2020;
+         int nowMonth = 12;
+         int weekStartOn = 5;
+         计算当前年之前的年份的天数
+        */
 
-        // 计算当前年之前的年份的天数
         for (int i = 1900; i < nowYear; i++) {
             if ((i % 4 == 0 && i % 100 != 0) || (i % 400 == 0)) {
                 allYearDays += 366;
