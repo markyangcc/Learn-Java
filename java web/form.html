@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+
+<body>
+
+    <!--表单
+表单是html页面收集用户所有信息的元素集合。
+
+value 表示默认值
+password 不限制长度，可以利用代码限制
+radio 是单选，比如男女，需要用name属性让浏览器知道他们是同一组，比如男女,肯定不能让同时选上
+            checked ="checked" 默认选中
+checkbox 复选框 可以选中多个选项，也可以默认选中
+select 下拉框，selected ="selected"表示默认选中
+
+-->
+
+    <form>
+        Name:<input type="text" value="defaultname" /><br /><br />
+        Password:<input type="password"><br /><br />
+        Re Password:<input type="password"><br /><br />
+        Sex:<input type="radio" name="sex" checked="checked" />Man<input type="radio" name="sex" />Women<br /><br />
+        Lang:<input type="checkbox" />Java<input type="checkbox" />C++<input type="checkbox" />Python<input
+            type="checkbox" />Go<br /><br />
+        Country:<select>
+            <option>----Please Country----</option>
+            <option selected="selected">China</option>
+            <option>US</option>
+            <option>Japan</option>
+        </select><br /><br />
+        <!--
+    多行文本输入框 <textarea>
+    <textarea> 的默认值是双标签之间的区域，不是使用value属性
+    rows表示文本框显示的行数，超过这个行的就要滚动了
+    cols表示文本框显示的字符宽度
+
+    -->
+        Description:<textarea rows="5" cols="80">Enter your description...</textarea><br /><br />
+        <!--
+reset 重置
+submit 提交 可以使用value属性修改上面的文字
+-->
+        <input type="reset" value="Reset" />
+        <input type="submit" value="Submit" /> <br />
+
+        <!--
+    button  按钮
+    file 文件 发送文件
+    hidden 隐藏域 发送一些文件不需要用户参与看见就可以使用隐藏域
+    -->
+
+        <input type="button" value="Button" /><br /><br />
+        <input type="file" />
+        <input type="hidden" name="abc" value="abcvalue" />
+    </form>
+    <br /><br />
+
+    <!--
+表单对齐 一般通过将数据放到表格里实现对齐好看，居中等等
+form
+
+          表单提交时，数据没有发送给服务器的三种情况
+            1、表单项中没有name属性值
+            2、单选，复选，下拉列表中的option标签 都需要添加value属性，以便发送给服务器 （否则会发送 on）
+
+-->
+    <form action="http://localhost:8080" method="get">
+        <h1 align="center">Register</h1>
+        <table align="center">
+            <tr>
+                <td>Name:</td>
+                <td><input name="name" type="text" /></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password"></td>
+            </tr>
+            <tr>
+                <td> Re Password:</td>
+                <td><input name="passwd" type="password"></td>
+            </tr>
+            <tr>
+                <td> Sex:</td>
+                <td>
+                    <input type="radio" name="sex" value="boy" />Man
+                    <input type="radio" name="sex" value="girl" />Women
+                </td>
+            </tr>
+            <tr>
+                <td> Lang:</td>
+                <td>
+                    <input type="checkbox" value="java" />Java
+                    <input type="checkbox" value="c++" />C++
+                    <input type="checkbox" value="python" />Python
+                    <input type="checkbox" value="go" />Go
+                </td>
+            </tr>
+            <tr>
+                <td> Country:</td>
+                <td>
+                    <select>
+                        <option value="none">----Please Country----</option>
+                        <option value="cn" selected="selected">China</option>
+                        <option value="us">US</option>
+                        <option value="jp">Japan</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td> Description:</td>
+                <td><textarea rows="5" cols="80">Enter your description...</textarea></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="reset" value="Reset" />
+                    <input type="submit" value="Submit" />
+                </td>
+            </tr>
+
+
+        </table>
+
+    </form>
+
+
+</body>
+
+</html>
