@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Form</title>
 </head>
-
 <body>
 
-    <!--表单
+<!--表单
 表单是html页面收集用户所有信息的元素集合。
 
 value 表示默认值
@@ -20,114 +18,131 @@ select 下拉框，selected ="selected"表示默认选中
 
 -->
 
-    <form>
-        Name:<input type="text" value="defaultname" /><br /><br />
-        Password:<input type="password"><br /><br />
-        Re Password:<input type="password"><br /><br />
-        Sex:<input type="radio" name="sex" checked="checked" />Man<input type="radio" name="sex" />Women<br /><br />
-        Lang:<input type="checkbox" />Java<input type="checkbox" />C++<input type="checkbox" />Python<input
-            type="checkbox" />Go<br /><br />
-        Country:<select>
-            <option>----Please Country----</option>
-            <option selected="selected">China</option>
-            <option>US</option>
-            <option>Japan</option>
-        </select><br /><br />
-        <!--
+<form>
+    Name:<input type="text" value="defaultname"/><br/><br/>
+    Password:<input type="password"><br/><br/>
+    Re Password:<input type="password"><br/><br/>
+    Sex:<input type="radio" name="sex" checked="checked"/>Man<input type="radio" name="sex"/>Women<br/><br/>
+    Lang:<input type="checkbox"/>Java<input type="checkbox"/>C++<input type="checkbox"/>Python<input type="checkbox"/>Go<br/><br/>
+    Country:<select>
+    <option>----Please Country----</option>
+    <option selected="selected">China</option>
+    <option>US</option>
+    <option>Japan</option>
+</select><br/><br/>
+    <!--
     多行文本输入框 <textarea>
     <textarea> 的默认值是双标签之间的区域，不是使用value属性
     rows表示文本框显示的行数，超过这个行的就要滚动了
     cols表示文本框显示的字符宽度
 
+    复选框和单选框都要使用name属性
+
     -->
-        Description:<textarea rows="5" cols="80">Enter your description...</textarea><br /><br />
-        <!--
+    Description:<textarea rows="5" cols="80">Enter your description...</textarea><br/><br/>
+    <!--
 reset 重置
 submit 提交 可以使用value属性修改上面的文字
 -->
-        <input type="reset" value="Reset" />
-        <input type="submit" value="Submit" /> <br />
+    <input type="reset" value="Reset"/>
+    <input type="submit" value="Submit"/> <br/>
 
-        <!--
+    <!--
     button  按钮
     file 文件 发送文件
     hidden 隐藏域 发送一些文件不需要用户参与看见就可以使用隐藏域
     -->
 
-        <input type="button" value="Button" /><br /><br />
-        <input type="file" />
-        <input type="hidden" name="abc" value="abcvalue" />
-    </form>
-    <br /><br />
+    <input type="button" value="Button"/><br/><br/>
+    <input type="file"/>
+    <input type="hidden" name="abc" value="abcvalue"/>
+</form>
+<br/><br/>
 
-    <!--
+<!--
 表单对齐 一般通过将数据放到表格里实现对齐好看，居中等等
 form
 
           表单提交时，数据没有发送给服务器的三种情况
             1、表单项中没有name属性值
-            2、单选，复选，下拉列表中的option标签 都需要添加value属性，以便发送给服务器 （否则会发送 on）
+            2、单选，复选，下拉列表中的option标签 都需要添加value属性，name属性也需要，以便发送给服务器 （否则会发送 on）
+            3、表单项不再form标签中，不能放到外面去
+
+    method    get请求特点
+                    1、浏览器地址栏的地址是 action属性[+?+请求参数]
+                        请求参数格式是：name=value&name=value ,即key-value格式
+
+                    http://localhost:8080/?action=login&name=sgf&passwd=gs&sex=girl&lang=cpp&country=us&description=Enter+
+
+                    2、不安全
+                    3、它有数据长度的限制 method="get" 限制只能100个(其实不是不同浏览器不同）
+
+              post请求特点
+                    1、浏览器地址栏只有action属性值，即只有服务器地址
+                    2、比较上比get安全
+                    3、理论上没有数据长度的限制
+
 
 -->
-    <form action="http://localhost:8080" method="get">
-        <h1 align="center">Register</h1>
-        <table align="center">
-            <tr>
-                <td>Name:</td>
-                <td><input name="name" type="text" /></td>
-            </tr>
-            <tr>
-                <td>Password:</td>
-                <td><input type="password"></td>
-            </tr>
-            <tr>
-                <td> Re Password:</td>
-                <td><input name="passwd" type="password"></td>
-            </tr>
-            <tr>
-                <td> Sex:</td>
-                <td>
-                    <input type="radio" name="sex" value="boy" />Man
-                    <input type="radio" name="sex" value="girl" />Women
-                </td>
-            </tr>
-            <tr>
-                <td> Lang:</td>
-                <td>
-                    <input type="checkbox" value="java" />Java
-                    <input type="checkbox" value="c++" />C++
-                    <input type="checkbox" value="python" />Python
-                    <input type="checkbox" value="go" />Go
-                </td>
-            </tr>
-            <tr>
-                <td> Country:</td>
-                <td>
-                    <select>
-                        <option value="none">----Please Country----</option>
-                        <option value="cn" selected="selected">China</option>
-                        <option value="us">US</option>
-                        <option value="jp">Japan</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td> Description:</td>
-                <td><textarea rows="5" cols="80">Enter your description...</textarea></td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="reset" value="Reset" />
-                    <input type="submit" value="Submit" />
-                </td>
-            </tr>
+<form action="http://localhost:8080" method="get">
+    <input type="hidden" name="action" value="login"/>
+    <h1 align="center">Register</h1>
+    <table align="center">
+        <tr>
+            <td>Name:</td>
+            <td><input name="name" type="text"/></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input name="passwd" type="password"></td>
+        </tr>
+        <tr>
+            <td> Re Password:</td>
+            <td><input type="password"></td>
+        </tr>
+        <tr>
+            <td> Sex:</td>
+            <td>
+                <input name="sex" type="radio"  value="boy"/>Man
+                <input name="sex" type="radio"  value="girl"/>Women
+            </td>
+        </tr>
+        <tr>
+            <td> Lang:</td>
+            <td>
+                <input name="lang" type="checkbox" value="java"/>Java
+                <input name="lang" type="checkbox" value="cpp"/>C++
+                <input name="lang" type="checkbox" value="python"/>Python
+                <input name="lang" type="checkbox" value="go"/>Go
+            </td>
+        </tr>
+        <tr>
+            <td> Country:</td>
+            <td>
+                <select name="country">
+                    <option value="none">----Please Country----</option>
+                    <option value="cn" selected="selected">China</option>
+                    <option value="us">US</option>
+                    <option value="jp">Japan</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td> Description:</td>
+            <td><textarea name="description" rows="5" cols="80">Enter your description...</textarea></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="reset" value="Reset"/>
+                <input type="submit" value="Submit"/>
+            </td>
+        </tr>
 
 
-        </table>
+    </table>
 
-    </form>
+</form>
 
 
 </body>
-
 </html>
