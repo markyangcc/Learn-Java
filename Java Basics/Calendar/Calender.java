@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Calendar {
+class Calendar {
     public static void main(String[] args) {
         int allYearDays = 0;
         int allMonthDays = 0;

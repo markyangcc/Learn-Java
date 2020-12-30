@@ -1,6 +1,10 @@
-public static void Main(String[] args){
+/**
+ * Main
+ */
+class Main {
 
-    public  void main(){
-        
+    static {
+        System.out.println("Hello, world!");
+        System.exit(0);
     }
 }
