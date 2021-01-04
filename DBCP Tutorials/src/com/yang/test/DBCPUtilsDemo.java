@@ -18,9 +18,8 @@ public class DBCPUtilsDemo {
         Statement st;
         ResultSet rs;
 
-        //将公共的部分抽取出来写到一个Utils工具包里面，写个同名函数 getConnection();进行调用即
+        // 将公共的部分抽取出来写到一个Utils工具包里面，写个同名函数 getConnection();进行调用即
         conn = DBCPUtils.getConnection();
-
 
         st = conn.createStatement();
 

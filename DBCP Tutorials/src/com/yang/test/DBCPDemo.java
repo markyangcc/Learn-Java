@@ -16,7 +16,7 @@ public class DBCPDemo {
         String driverClassName = "com.mysql.jdbc.Driver";
         String url = "jdbc:mysql://localhost:3306/course?useUnicode=true&characterEncoding=utf-8&useSSL=false";
         String username = "root";
-        String password = "123456";//若没有密码, 这里写不写无所谓
+        String password = "123456";// 若没有密码, 这里写不写无所谓
 
         BasicDataSource ds = new BasicDataSource();
         ds.setDriverClassName(driverClassName);
@@ -24,8 +24,7 @@ public class DBCPDemo {
         ds.setUsername(username);
         ds.setPassword(password);
 
-
-        //创建连接对象
+        // 创建连接对象
         Connection connection = null;
         Statement statement = null;
         ResultSet resultSet = null;
@@ -49,7 +48,7 @@ public class DBCPDemo {
             throwables.printStackTrace();
         } finally {
             try {
-                //connection may be null, so assert it first
+                // connection may be null, so assert it first
                 assert connection != null;
                 connection.close();
                 assert statement != null;
@@ -60,7 +59,6 @@ public class DBCPDemo {
                 throwables.printStackTrace();
             }
         }
-
 
     }
 }
