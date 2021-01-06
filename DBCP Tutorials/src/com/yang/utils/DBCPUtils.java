@@ -1,6 +1,5 @@
 package com.yang.utils;
 
-
 import org.apache.commons.dbcp2.BasicDataSource;
 
 import java.sql.Connection;
@@ -13,23 +12,17 @@ public class DBCPUtils {
     public static String driverClassName = "com.mysql.jdbc.Driver";
     public static String url = "jdbc:mysql://localhost:3306/course?useUnicode=true&characterEncoding=utf-8&useSSL=false";
     public static String username = "root";
-    public static String password = "123456";//若没有密码, 这里写不写无所谓
+    public static String password = "123456";// 若没有密码, 这里写不写无所谓
     public static BasicDataSource ds = null;
 
-    /*赋值
-    static {
-        BasicDataSource ds = new BasicDataSource();
-        ds.setDriverClassName(driverClassName);
-        ds.setUrl(url);
-        ds.setUsername(username);
-        ds.setPassword(password);
-    }
-    */
-
+    /*
+     * 赋值 static { BasicDataSource ds = new BasicDataSource();
+     * ds.setDriverClassName(driverClassName); ds.setUrl(url);
+     * ds.setUsername(username); ds.setPassword(password); }
+     */
 
     /**
-     * 获取connection数据库连接
-     * 之前代码的对象创建完后，直接getConnection()
+     * 获取connection数据库连接 之前代码的对象创建完后，直接getConnection()
      *
      * @return return Connection or null
      */
@@ -81,6 +74,5 @@ public class DBCPUtils {
         }
 
     }
-
 
 }

@@ -22,7 +22,8 @@ public class DBCPUtils2 {
         InputStream is = null;
         try {
             is = new FileInputStream("resources/dbcp.properties");
-            //is = DBCPUtils2.class.getClassLoader().getResourceAsStream("dbcp.properties");
+            // is =
+            // DBCPUtils2.class.getClassLoader().getResourceAsStream("dbcp.properties");
 
             try {
                 ps.load(is);
